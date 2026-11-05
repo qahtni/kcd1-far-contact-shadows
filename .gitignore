@@ -1,0 +1,19 @@
+# build output
+/build/
+*.7z
+*.pak
+*.exe
+*.dll
+*.dxbc
+*.tsv
+__pycache__/
+*.bak.*
+
+# game files and fonts are never committed
+*.gfx
+*.ttf
+*.otf
+*.cfx
+*.cfi
+*.fxcb
+*.hlsl
