@@ -16,7 +16,7 @@ How it works, and why it needs a shader cache swap: [HOW-IT-WORKS.md](HOW-IT-WOR
 
 ## Download
 
-Get `FarContactShadows-1.0.1.7z` from [Releases](../../releases). It holds the mod, the shader cache and the installers.
+Get `FarContactShadows-1.0.1.7z` from [Releases](../../releases) or [Nexus Mods](https://www.nexusmods.com/kingdomcomedeliverance/mods/2455). It holds the mod, the shader cache and the installers.
 
 ## Install
 
