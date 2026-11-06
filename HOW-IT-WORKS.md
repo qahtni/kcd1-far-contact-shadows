@@ -64,8 +64,21 @@ Fix (`ownsurface=1` in `make_compat.py`): a surface cannot shadow itself. 1/dept
 
 Trade-off: at a very low sun, small terrain bumps cast fewer contact shadows into the hollows next to them. Objects that stand above the ground (rocks, posts, grass) are not affected.
 
+## 1.0.2: dark wedges on tent cloth
+
+Tents, awnings, laundry and curtains are drawn with the foliage shader as thin translucent sheets, and the sun shadow maps let the sun through them (the floor inside a tent is sunlit). The contact-shadow ray did not know that. Inside a tent the ray toward the sun passes through the curved wall, so the wall's own folds, its bend toward the floor and its seams read as blockers: dark wedges on the walls and a dark line where the wall meets the floor.
+
+Fix, all in `make_compat.py`:
+
+- **Recognise cloth in the G-buffer** (`nocloth=1`): translucent, no skin profile, and the translucency colour of one of the game's cloth presets (grey, or orange for curtains), which no plant uses. Cloth on a preset that plants share (the Cuman tents and a few others) is told apart by its stored specular value as well (`speckeys=1`). Where a seam decal is blended over that cloth (the floor hem), the shader accepts values on the line between the cloth's and the decal's (`decalkeys=1`). All 363 translucent foliage-shader materials in the game's paks were checked against these rules.
+- **No contact shadows where the sun shines through cloth**: the ray toward the sun ends behind the cloth's own plane (the plane test from 1.0.1). The sunlit side keeps its contact shadows.
+- **Cloth never blocks a contact-shadow ray** (`clothblock=1`), the same as in the sun shadow maps.
+
+Trade-off: cloth folds cast no contact shadows on either side. Poles, people and props still cast contact shadows on cloth.
+
 ## Known side effects
 
 - `r_ShadowsScreenSpace 0` no longer turns sun contact shadows off; the mod's code does not check it.
 - At the Low shadow setting the game reuses the Medium shader variants and sets `r_ShadowsScreenSpace 0`, so with the mod contact shadows stay on at Low.
+- The grass along the Vranik palisade and a few small forest roots share a Cuman tent's material values, so the mod treats them as cloth: they cast no contact shadows and get none where the sun shines through them.
 - If a game update changes `ShadowMaskGen.cfx`, the mod's copy hides the new version. `build.sh` reports when the stock file differs from 1.9.8.

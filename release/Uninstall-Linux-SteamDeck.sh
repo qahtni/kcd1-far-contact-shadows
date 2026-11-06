@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Far Contact Shadows 1.0.1 - uninstaller for Steam Deck / Linux (Proton).
+# Far Contact Shadows 1.0.2 - uninstaller for Steam Deck / Linux (Proton).
 #   bash FarContactShadows-Uninstall.sh [game folder]
 # Works from the game folder (the installer leaves a copy there as FarContactShadows-Uninstall.sh),
 # from Mods/FarContactShadows, or from the extracted archive anywhere else (it then finds the game
@@ -34,7 +34,7 @@ find_game() {  # same search as the installer
 }
 
 SELF=$(cd "$(dirname "$0")" && pwd -P)
-echo "Far Contact Shadows 1.0.1 - uninstall"
+echo "Far Contact Shadows 1.0.2 - uninstall"
 if [ $# -ge 1 ]; then
   is_game "$1" || die "No Kingdom Come: Deliverance in $1 (it needs Bin/Win64/KingdomCome.exe)."
   GAME=$(cd "$1" && pwd -P)

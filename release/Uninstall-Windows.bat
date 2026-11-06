@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
-rem Far Contact Shadows 1.0.1 - uninstaller for Windows.
+rem Far Contact Shadows 1.0.2 - uninstaller for Windows.
 rem Works from the game folder (the installer leaves a copy there as FarContactShadows-Uninstall.bat),
 rem from Mods\FarContactShadows, or from the extracted archive anywhere else (it then finds the game
 rem the same way the installer does; or drag the game folder onto this file).
@@ -17,7 +17,7 @@ set "SELF=%~dp0"
 set "SELF=%SELF:~0,-1%"
 set "ARG=%~1"
 set "SELFDEL="
-echo Far Contact Shadows 1.0.1 - uninstall
+echo Far Contact Shadows 1.0.2 - uninstall
 call :findgame
 if not defined GAME goto :nogame
 echo Game folder: "%GAME%"

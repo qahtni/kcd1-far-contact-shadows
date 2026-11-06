@@ -4,7 +4,7 @@
     <name>Far Contact Shadows</name>
     <description>Sun contact shadows reach the whole sun shadow range instead of about 3 m, and grass, bushes and trees receive them. Run the installer in the mod folder once (see README.txt).</description>
     <author>mrtaxerman</author>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <created_on>2026-11-04</created_on>
   </info>
   <supports>

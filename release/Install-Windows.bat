@@ -1,6 +1,6 @@
 @echo off
 setlocal EnableExtensions DisableDelayedExpansion
-rem Far Contact Shadows 1.0.1 - installer for Windows.
+rem Far Contact Shadows 1.0.2 - installer for Windows.
 rem Double-click it in the extracted archive, wherever that is (Downloads, Mods\FarContactShadows, ...).
 rem It finds the game itself: in the folder around it (Mods\<mod>), else in every Steam library,
 rem else in the GOG Galaxy and Epic default folders. To pick a folder yourself, drag the game
@@ -20,7 +20,7 @@ set "SELF=%~dp0"
 set "SELF=%SELF:~0,-1%"
 set "ARG=%~1"
 set "COPIED="
-echo Far Contact Shadows 1.0.1 - install
+echo Far Contact Shadows 1.0.2 - install
 call :findgame
 if not defined GAME goto :nogame
 if /i "%SELF%"=="%GAME%" (set "ERR=Extract the archive into a folder of its own, for example Downloads, not into the game folder itself." & goto :fail)

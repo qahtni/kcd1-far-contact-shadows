@@ -16,7 +16,7 @@ How it works, and why it needs a shader cache swap: [HOW-IT-WORKS.md](HOW-IT-WOR
 
 ## Download
 
-Get `FarContactShadows-1.0.1.7z` from [Releases](../../releases) or [Nexus Mods](https://www.nexusmods.com/kingdomcomedeliverance/mods/2455). It holds the mod, the shader cache and the installers.
+Get `FarContactShadows-1.0.2.7z` from [Releases](../../releases) or [Nexus Mods](https://www.nexusmods.com/kingdomcomedeliverance/mods/2455). It holds the mod, the shader cache and the installers.
 
 ## Install
 
@@ -48,7 +48,7 @@ In the game folder (Steam: right-click the game > Manage > Browse local files; i
 
 The installers check `Engine\shadercache.pak` first and change nothing if it is not the original 1.9.8 file. They keep the original as `Engine\shadercache.pak.original` and put an uninstaller in the game folder. The first start after installing builds the new shadow shader once.
 
-**Updating from 1.0:** install 1.0.1 the same way (run the installer again, or let Vortex replace the mod). Only the mod files change; the shader cache from 1.0 stays.
+**Updating from 1.0 or 1.0.1:** install 1.0.2 the same way (run the installer again, or let Vortex replace the mod). Only the mod files change; the shader cache from 1.0 stays.
 
 ## Uninstall: do this before you remove or disable the mod
 
@@ -71,15 +71,15 @@ Without the original `Engine\shadercache.pak` the game has no sun shadows at all
 The repo holds no game files. `build.sh` reads the stock shader and shader cache from your own copy of the game and builds the same release archive:
 
 ```
-./build.sh "/path/to/KingdomComeDeliverance"      # writes ./build/FarContactShadows-1.0.1.7z
+./build.sh "/path/to/KingdomComeDeliverance"      # writes ./build/FarContactShadows-1.0.2.7z
 ```
 
-Needs Python 3 and 7-Zip (`7z`). With game 1.9.8 every file in the archive is byte-identical to the published 1.0.1 release, and the script prints that check.
+Needs Python 3 and 7-Zip (`7z`). With game 1.9.8 every file in the archive is byte-identical to the published 1.0.2 release, and the script prints that check.
 
 | Path | What |
 |---|---|
 | `src/make_sss_mod.py` | Patches the stock `ShadowMaskGen.cfx`: far-reaching contact shadow function, all cascades, foliage settings. Every replacement must match the stock text exactly once. |
-| `src/make_compat.py` | Float-only copies of the stock helpers so Proton's shader compiler can build the shader, plus the 1.0.1 low-sun fix (`ownsurface=1`). Writes the mod pak. |
+| `src/make_compat.py` | Float-only copies of the stock helpers so Proton's shader compiler can build the shader, plus the 1.0.1 low-sun fix (`ownsurface=1`) and the 1.0.2 cloth fixes (`nocloth=1 speckeys=1 decalkeys=1 clothblock=1`). Writes the mod pak. |
 | `src/filter_pak.py` | Copies the game's `shadercache.pak` without the two stock sun shadow shaders. |
 | `release/` | Installers, uninstallers, the archive README and `build_release.sh`. |
 | `tools/compat/` | Compiler test bench: builds every shader permutation with Microsoft's compiler and each Proton vkd3d-shader version ([README](tools/compat/README.md)). |

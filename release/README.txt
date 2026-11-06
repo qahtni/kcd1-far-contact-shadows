@@ -1,4 +1,4 @@
-FAR CONTACT SHADOWS 1.0.1
+FAR CONTACT SHADOWS 1.0.2
 Expanded Screen Space Shadows
 Kingdom Come: Deliverance (1.9.8)
 Author: mrtaxerman
@@ -49,8 +49,8 @@ Needs Proton 9.0 or newer (Steam's default Proton is fine). With Proton 8 or
 older the game can't build the new shadow shader and shows no sun shadows.
 To check: right-click the game > Properties > Compatibility.
 
-UPDATING FROM 1.0
-Install 1.0.1 the same way: run the installer again, or let Vortex replace
+UPDATING FROM 1.0 OR 1.0.1
+Install 1.0.2 the same way: run the installer again, or let Vortex replace
 the mod. Only the mod files change; the shader cache from 1.0 stays. The
 first start after updating builds the new shadow shader once.
 
@@ -100,6 +100,11 @@ GOOD TO KNOW
 - The backup keeps the original 226 MB shader cache next to the new one.
 
 CHANGES
+1.0.2
+- Tents, awnings, laundry and other hanging cloth: no more dark wedges and
+  lines on the cloth where the sun shines through it (for example inside a
+  tent), and no dark line where a tent wall meets the floor. The sunlit side
+  keeps its contact shadows.
 1.0.1
 - Fixed a dark square around the sun when facing a low sun (sunrise,
   sunset), mostly at low resolutions such as the Steam Deck's, and dark

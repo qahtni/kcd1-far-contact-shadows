@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Far Contact Shadows 1.0.1 - installer for Steam Deck / Linux (Proton).
+# Far Contact Shadows 1.0.2 - installer for Steam Deck / Linux (Proton).
 #   bash Install-Linux-SteamDeck.sh [game folder]
 # Run it from the extracted archive, wherever that is (Downloads, Mods/FarContactShadows, ...).
 # It finds the game itself: in the folder around it (Mods/<mod>), else in every Steam library
@@ -38,7 +38,7 @@ find_game() {  # candidate game folders, one per line
 }
 
 SELF=$(cd "$(dirname "$0")" && pwd -P)
-echo "Far Contact Shadows 1.0.1 - install"
+echo "Far Contact Shadows 1.0.2 - install"
 if [ $# -ge 1 ]; then
   is_game "$1" || die "No Kingdom Come: Deliverance in $1 (it needs Bin/Win64/KingdomCome.exe)."
   GAME=$(cd "$1" && pwd -P)
